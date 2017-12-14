@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+
+    <string name="backgroundNewspaper">Empty State view</string>
+    <string name="textViewEmptyState">Recent news will be shown here</string>
+
+    <string name="textViewHeading">Heading</string>
+    <string name="textViewSubHeading">Sub Heading</string>
+</resources>
