@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * Created by Kundan on 13-12-2017.
+ * Recycle view adpter for news Items
  */
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
@@ -26,7 +27,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private List<News> mList;
     private Context mContext;
 
-    public NewsAdapter(Context context, List<News> news){
+    public NewsAdapter(Context context, List<News> news) {
         mContext = context;
         mList = news;
     }
@@ -54,7 +55,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public NewsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         //Card View layout
-        View newsView = layoutInflater.inflate(R.layout.recycler_view_row_item_design_2,parent,false);
+        View newsView = layoutInflater.inflate(R.layout.recycler_view_row_item_design_2, parent, false);
         //Relative layout layout
         //View newsView = layoutInflater.inflate(R.layout.recycler_view_row_item,parent,false);
 
@@ -90,5 +91,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public int getItemCount() {
         return mList.size();
     }
+
 
 }

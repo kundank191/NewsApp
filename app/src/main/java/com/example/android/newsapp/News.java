@@ -8,7 +8,7 @@ public class News {
 
     private String mHeading, mSubHeading, mUrlImage, mUrlSite;
 
-    public News(String heading,String subHeading,String urlImage,String urlSite){
+    public News(String heading, String subHeading, String urlImage, String urlSite) {
 
         mHeading = heading;
         mSubHeading = subHeading;
@@ -16,16 +16,19 @@ public class News {
         mUrlSite = urlSite;
     }
 
-    String getHeading(){
+    String getHeading() {
         return mHeading;
     }
-    String getSubHeading(){
+
+    String getSubHeading() {
         return mSubHeading;
     }
-    String getUrlImage(){
+
+    String getUrlImage() {
         return mUrlImage;
     }
-    String getUrlSite(){
+
+    String getUrlSite() {
         return mUrlSite;
     }
 }

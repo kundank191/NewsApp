@@ -6,4 +6,5 @@
     <color name="colorLight">#cb4caf50</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorPecondaryText">#757575</color>
+    <color name="colorWhite">#ffffff</color>
 </resources>

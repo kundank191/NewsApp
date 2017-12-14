@@ -6,4 +6,9 @@
 
     <string name="textViewHeading">Heading</string>
     <string name="textViewSubHeading">Sub Heading</string>
+    <string name="textLoading">Loading</string>
+    <string name="textRefreshing">Refreshing</string>
+
+    <string name="errorRetrievingData">Error getting data from server</string>
+    <string name="errorNoInternetConnection">No Internet Connection</string>
 </resources>

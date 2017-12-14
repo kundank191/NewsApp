@@ -19,7 +19,7 @@ public class Utils {
     /**
      * Returns an URL object from a String object
      */
-    public URL getUrl(String stringUrl){
+    public URL getUrl(String stringUrl) {
         URL url = null;
         try {
             url = new URL(stringUrl);
@@ -32,7 +32,7 @@ public class Utils {
     /**
      * Make an HTTP request to the given URL and return a String as the response.
      */
-    public String makeHTTPRequest(URL url){
+    public String makeHTTPRequest(URL url) {
         String JSONResponse = null;
         HttpURLConnection urlConnection = null;
         InputStream inputStream = null;
@@ -49,17 +49,18 @@ public class Utils {
         }
         return JSONResponse;
     }
+
     /**
      * Convert the {@link InputStream} into a String which contains the
      * whole JSON response from the server.
      */
     private String readFromStream(InputStream inputStream) throws IOException {
         StringBuilder output = new StringBuilder();
-        if(inputStream != null){
+        if (inputStream != null) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line = bufferedReader.readLine();
-            while (line != null){
+            while (line != null) {
                 output.append(line);
                 line = bufferedReader.readLine();
             }
