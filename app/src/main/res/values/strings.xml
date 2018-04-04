@@ -11,4 +11,9 @@
 
     <string name="errorRetrievingData">Error getting data from server</string>
     <string name="errorNoInternetConnection">No Internet Connection</string>
+
+    <string name="transitionPhoto">photo</string>
+    <string name="transitionHeading">Heading</string>
+    <string name="transitionSubHead">SubHeading</string>
+
 </resources>

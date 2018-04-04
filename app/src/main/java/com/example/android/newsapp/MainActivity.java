@@ -1,12 +1,16 @@
 package com.example.android.newsapp;
 
+import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Loader;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -39,12 +43,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private LinearLayout mProgressBar;
     private int i = 0;
     private LinearLayout mEmptyStateView;
+    private Activity mActivity;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle(getResources().getString(R.string.app_name));
@@ -54,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mProgressBar = (LinearLayout) findViewById(R.id.progressLayer);
         mEmptyStateView = (LinearLayout) findViewById(R.id.empty_state_view);
+        mActivity = this;
         //Start Loading news when activity is created
         StartLoadingData();
 
@@ -104,7 +111,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if(news != null) {
             mProgressBar.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
-            mAdapter = new NewsAdapter(getBaseContext(), news);
+            mAdapter = new NewsAdapter(getBaseContext(), news, new NewsItemClickListener() {
+                @Override
+                public void onItemClick(View v, int position, NewsAdapter.ViewHolder holder, News newsItem) {
+                    String url = newsItem.getUrlSite();
+                    CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                    builder.setToolbarColor(Color.rgb(76,175,80));
+                    CustomTabsIntent customTabsIntent = builder.build();
+                    customTabsIntent.launchUrl(getBaseContext(), Uri.parse(url));
+                }
+            });
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             mRecyclerView.setLayoutManager(linearLayoutManager);
