@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 public void onItemClick(View v, int position, NewsAdapter.ViewHolder holder, News newsItem) {
                     String url = newsItem.getUrlSite();
                     CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                    //Using rgb color due to some issues
                     builder.setToolbarColor(Color.rgb(76,175,80));
                     CustomTabsIntent customTabsIntent = builder.build();
                     customTabsIntent.launchUrl(getBaseContext(), Uri.parse(url));
